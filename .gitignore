@@ -1,0 +1,13 @@
+# Virtual environment
+.venv/
+
+# Large data and research artifacts
+artifacts/
+research/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
