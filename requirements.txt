@@ -1,5 +1,5 @@
-tensorflow
-pandas 
+tensorflow>=2.16,<2.22
+pandas
 dvc
 mlflow
 notebook
@@ -7,7 +7,7 @@ numpy
 matplotlib
 seaborn
 python-box
-pyYAML
+PyYAML
 tqdm
 ensure
 joblib
