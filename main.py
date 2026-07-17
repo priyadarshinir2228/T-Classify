@@ -12,3 +12,11 @@ try:
 except Exception as e:
         logger.exception(e)
         raise e
+STAGE_NAME=" Prepare Model Baseline"
+try:
+    logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
+    # Add your pipeline code here
+    logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
+except Exception as e:
+    logger.exception(e)
+    raise e

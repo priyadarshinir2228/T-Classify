@@ -289,3 +289,40 @@ x==========x]
 [2026-07-16 13:51:56,415: INFO: common: yaml file: params.yaml loaded successfully]
 [2026-07-16 13:51:56,415: INFO: common: created directory at: artifacts]
 [2026-07-16 13:51:56,415: INFO: common: created directory at: artifacts/prepare_base_model]
+[2026-07-16 13:54:35,791: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-07-16 13:54:35,795: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-07-16 13:54:35,795: INFO: common: created directory at: artifacts]
+[2026-07-16 13:54:35,801: INFO: common: created directory at: artifacts/prepare_base_model]
+[2026-07-16 13:54:36,546: WARNING: config: TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.]
+[2026-07-16 13:54:46,515: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-07-16 13:54:46,520: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-07-16 13:54:46,522: INFO: common: created directory at: artifacts]
+[2026-07-16 13:54:46,523: INFO: common: created directory at: artifacts/prepare_base_model]
+[2026-07-17 09:11:29,813: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-07-17 09:11:29,817: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-07-17 09:11:29,819: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-07-17 09:11:29,819: INFO: common: created directory at: artifacts]
+[2026-07-17 09:11:29,819: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-07-17 09:11:37,667: INFO: data_ingestion: Using existing dataset archive at: artifacts\data_ingestion\data.zip]
+[2026-07-17 09:11:37,732: INFO: data_ingestion: Using existing extracted dataset at: artifacts\data_ingestion\CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone]
+[2026-07-17 09:11:37,737: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2026-07-17 09:11:37,737: INFO: main: >>>>>> stage  Prepare Model Baseline started <<<<<<]
+[2026-07-17 09:11:37,737: INFO: main: >>>>>> stage  Prepare Model Baseline completed <<<<<<
+
+x==========x]
+[2026-07-17 13:03:56,043: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-07-17 13:03:56,043: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-07-17 13:03:56,043: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-07-17 13:03:56,043: INFO: common: created directory at: artifacts]
+[2026-07-17 13:03:56,043: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-07-17 13:04:04,324: INFO: data_ingestion: Using existing dataset archive at: artifacts\data_ingestion\data.zip]
+[2026-07-17 13:04:04,387: INFO: data_ingestion: Using existing extracted dataset at: artifacts\data_ingestion\CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone]
+[2026-07-17 13:04:04,387: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2026-07-17 13:04:04,387: INFO: main: >>>>>> stage  Prepare Model Baseline started <<<<<<]
+[2026-07-17 13:04:04,387: INFO: main: >>>>>> stage  Prepare Model Baseline completed <<<<<<
+
+x==========x]
