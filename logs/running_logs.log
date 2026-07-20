@@ -326,3 +326,394 @@ x==========x]
 [2026-07-17 13:04:04,387: INFO: main: >>>>>> stage  Prepare Model Baseline completed <<<<<<
 
 x==========x]
+[2026-07-18 08:29:05,175: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-07-18 08:29:05,191: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-07-18 08:29:05,193: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-07-18 08:29:05,194: INFO: common: created directory at: artifacts]
+[2026-07-18 08:29:05,194: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-07-18 08:29:10,879: INFO: data_ingestion: Using existing dataset archive at: artifacts\data_ingestion\data.zip]
+[2026-07-18 08:29:10,936: INFO: data_ingestion: Using existing extracted dataset at: artifacts\data_ingestion\CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone]
+[2026-07-18 08:29:10,938: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2026-07-18 08:29:10,938: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2026-07-18 08:29:10,938: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2026-07-18 08:55:01,356: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-07-18 08:55:01,364: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-07-18 08:55:01,364: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-07-18 08:55:01,364: INFO: common: created directory at: artifacts]
+[2026-07-18 08:55:01,364: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-07-18 08:55:09,817: INFO: data_ingestion: Using existing dataset archive at: artifacts\data_ingestion\data.zip]
+[2026-07-18 08:55:09,893: INFO: data_ingestion: Using existing extracted dataset at: artifacts\data_ingestion\CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone]
+[2026-07-18 08:55:09,901: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2026-07-18 08:55:09,901: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2026-07-18 08:55:09,901: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2026-07-18 09:19:21,633: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-07-18 09:19:21,635: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-07-18 09:19:21,635: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-07-18 09:19:21,635: INFO: common: created directory at: artifacts]
+[2026-07-18 09:19:21,635: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-07-18 09:19:21,635: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1xl2zHr4TNCJvkrxbIbQWB5YLHf3h0pMb/view?usp=sharing into file artifacts\data_ingestion\data.zip]
+[2026-07-18 09:23:02,151: ERROR: main: Dataset download failed. Check your internet connection and proxy settings (HTTP_PROXY, HTTPS_PROXY, and ALL_PROXY).]
+Traceback (most recent call last):
+  File "C:\Users\ASUS\anaconda3\envs\kidney_tf\Lib\site-packages\urllib3\response.py", line 905, in _error_catcher
+    yield
+  File "C:\Users\ASUS\anaconda3\envs\kidney_tf\Lib\site-packages\urllib3\response.py", line 1043, in _raw_read
+    raise IncompleteRead(self._fp_bytes_read, self.length_remaining)
+urllib3.exceptions.IncompleteRead: IncompleteRead(894763322 bytes read, 732634977 more expected)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\ASUS\anaconda3\envs\kidney_tf\Lib\site-packages\requests\models.py", line 937, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "C:\Users\ASUS\anaconda3\envs\kidney_tf\Lib\site-packages\urllib3\response.py", line 1267, in stream
+    data = self.read(amt=amt, decode_content=decode_content)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\anaconda3\envs\kidney_tf\Lib\site-packages\urllib3\response.py", line 1155, in read
+    data = self._raw_read(amt)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\anaconda3\envs\kidney_tf\Lib\site-packages\urllib3\response.py", line 1021, in _raw_read
+    with self._error_catcher():
+  File "C:\Users\ASUS\anaconda3\envs\kidney_tf\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\ASUS\anaconda3\envs\kidney_tf\Lib\site-packages\urllib3\response.py", line 925, in _error_catcher
+    raise ProtocolError(arg, e) from e
+urllib3.exceptions.ProtocolError: ('Connection broken: IncompleteRead(894763322 bytes read, 732634977 more expected)', IncompleteRead(894763322 bytes read, 732634977 more expected))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\T-Classify\src\cnnClassifier\components\data_ingestion.py", line 38, in download_file
+    downloaded_file = gdown.download(download_url, str(zip_download_path), quiet=False)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\anaconda3\envs\kidney_tf\Lib\site-packages\gdown\download.py", line 421, in download
+    for chunk in res.iter_content(chunk_size=CHUNK_SIZE):
+  File "C:\Users\ASUS\anaconda3\envs\kidney_tf\Lib\site-packages\requests\models.py", line 939, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ('Connection broken: IncompleteRead(894763322 bytes read, 732634977 more expected)', IncompleteRead(894763322 bytes read, 732634977 more expected))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\T-Classify\main.py", line 10, in <module>
+    data_ingestion.main()
+  File "E:\T-Classify\src\cnnClassifier\pipeline\stage_01_data_ingestion.py", line 16, in main
+    data_ingestion.download_file()
+  File "E:\T-Classify\src\cnnClassifier\components\data_ingestion.py", line 40, in download_file
+    raise RuntimeError(
+RuntimeError: Dataset download failed. Check your internet connection and proxy settings (HTTP_PROXY, HTTPS_PROXY, and ALL_PROXY).
+[2026-07-18 09:23:47,634: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-07-18 09:23:47,642: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-07-18 09:23:47,645: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-07-18 09:23:47,647: INFO: common: created directory at: artifacts]
+[2026-07-18 09:23:47,647: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-07-18 09:23:47,649: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1xl2zHr4TNCJvkrxbIbQWB5YLHf3h0pMb/view?usp=sharing into file artifacts\data_ingestion\data.zip]
+[2026-07-18 09:29:47,801: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1xl2zHr4TNCJvkrxbIbQWB5YLHf3h0pMb/view?usp=sharing into file artifacts\data_ingestion\data.zip]
+[2026-07-18 09:30:09,318: INFO: data_ingestion: Extracted dataset archive into: artifacts\data_ingestion]
+[2026-07-18 09:30:09,335: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2026-07-18 09:30:09,335: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2026-07-18 09:30:09,335: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2026-07-18 09:40:15,641: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-07-18 09:40:15,641: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-07-18 09:40:15,645: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-07-18 09:40:15,645: INFO: common: created directory at: artifacts]
+[2026-07-18 09:40:15,645: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-07-18 09:40:15,645: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1xl2zHr4TNCJvkrxbIbQWB5YLHf3h0pMb/view?usp=sharing into file artifacts\data_ingestion\data.zip]
+[2026-07-18 10:03:53,026: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1xl2zHr4TNCJvkrxbIbQWB5YLHf3h0pMb/view?usp=sharing into file artifacts\data_ingestion\data.zip]
+[2026-07-18 10:04:10,381: INFO: data_ingestion: Extracted dataset archive into: artifacts\data_ingestion]
+[2026-07-18 10:04:10,381: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2026-07-18 10:04:10,381: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2026-07-18 10:04:10,381: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-07-18 10:04:10,393: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-07-18 10:04:10,393: INFO: common: created directory at: artifacts]
+[2026-07-18 10:04:10,395: INFO: common: created directory at: artifacts/prepare_base_model]
+[2026-07-18 10:04:10,982: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-07-18 10:04:11,155: INFO: prepare_base_model: VGG16 base model saved to: artifacts\prepare_base_model\base_model.h5]
+[2026-07-18 10:04:11,182: WARNING: config: TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.]
+[2026-07-18 10:04:11,186: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-07-18 10:04:11,354: INFO: prepare_base_model: Updated base model saved to: artifacts\prepare_base_model\base_model_updated.h5]
+[2026-07-18 10:04:11,354: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2026-07-19 10:06:29,048: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-07-19 10:06:29,054: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-07-19 10:06:29,058: INFO: common: created directory at: artifacts]
+[2026-07-19 10:06:29,060: INFO: common: created directory at: artifacts\training]
+[2026-07-19 10:06:29,531: WARNING: config: TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.]
+[2026-07-19 10:06:29,537: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-07-19 11:08:10,400: INFO: 112405711: Initializing training pipeline...]
+[2026-07-19 11:08:10,408: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-07-19 11:08:10,410: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-07-19 11:08:10,410: INFO: common: created directory at: artifacts]
+[2026-07-19 11:08:10,415: INFO: common: created directory at: artifacts\training]
+[2026-07-19 11:08:10,416: INFO: 112405711: Creating Training instance...]
+[2026-07-19 11:08:10,417: INFO: 112405711: Loading base model...]
+[2026-07-19 11:08:10,813: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-07-19 11:08:10,813: INFO: 112405711: Creating data generators...]
+[2026-07-19 11:08:10,813: ERROR: 112405711: Error during training: [WinError 3] The system cannot find the path specified: 'artifacts\\data_ingestion\\kidney-ct-scan-image']
+Traceback (most recent call last):
+  File "C:\Users\ASUS\AppData\Local\Temp\ipykernel_20136\112405711.py", line 13, in <module>
+    training.train_valid_generator()
+  File "C:\Users\ASUS\AppData\Local\Temp\ipykernel_20136\990231243.py", line 28, in train_valid_generator
+    self.valid_generator = valid_datagenerator.flow_from_directory(
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\ASUS\anaconda3\envs\kidney_tf\Lib\site-packages\keras\src\legacy\preprocessing\image.py", line 1137, in flow_from_directory
+    return DirectoryIterator(
+           ^^^^^^^^^^^^^^^^^^
+  File "c:\Users\ASUS\anaconda3\envs\kidney_tf\Lib\site-packages\keras\src\legacy\preprocessing\image.py", line 457, in __init__
+    for subdir in sorted(os.listdir(directory)):
+                         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [WinError 3] The system cannot find the path specified: 'artifacts\\data_ingestion\\kidney-ct-scan-image'
+[2026-07-19 11:14:46,556: INFO: 112405711: Initializing training pipeline...]
+[2026-07-19 11:14:46,561: ERROR: 112405711: Error during training: [Errno 2] No such file or directory: 'config\\config.yaml']
+Traceback (most recent call last):
+  File "C:\Users\ASUS\AppData\Local\Temp\ipykernel_20136\112405711.py", line 3, in <module>
+    config = ConfigurationManager()
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\AppData\Local\Temp\ipykernel_20136\1239887275.py", line 7, in __init__
+    self.config = read_yaml(config_filepath)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\ASUS\anaconda3\envs\kidney_tf\Lib\site-packages\ensure\main.py", line 872, in __call__
+    return_val = self.f(*args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\T-Classify\src\cnnClassifier\utils\common.py", line 35, in read_yaml
+    raise e
+  File "E:\T-Classify\src\cnnClassifier\utils\common.py", line 28, in read_yaml
+    with open(path_to_yaml) as yaml_file:
+         ^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'config\\config.yaml'
+[2026-07-19 11:16:18,314: INFO: 112405711: Initializing training pipeline...]
+[2026-07-19 11:16:18,319: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-07-19 11:16:18,325: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-07-19 11:16:18,328: INFO: common: created directory at: artifacts]
+[2026-07-19 11:16:18,328: INFO: common: created directory at: artifacts\training]
+[2026-07-19 11:16:18,328: INFO: 112405711: Creating Training instance...]
+[2026-07-19 11:16:18,328: INFO: 112405711: Loading base model...]
+[2026-07-19 11:16:18,682: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-07-19 11:16:18,682: INFO: 112405711: Creating data generators...]
+[2026-07-19 11:16:19,058: INFO: 112405711: Starting model training...]
+[2026-07-19 11:16:19,060: INFO: 990231243: Starting training for 50 epochs...]
+[2026-07-19 11:16:19,939: ERROR: 112405711: Error during training: Unknown variable: <Variable path=dense/kernel, shape=(25088, 4), dtype=float32>. This optimizer can only be called for the variables it was originally built with. When working with a new set of variables, you should recreate a new optimizer instance.]
+Traceback (most recent call last):
+  File "C:\Users\ASUS\AppData\Local\Temp\ipykernel_14064\112405711.py", line 16, in <module>
+    training.train()
+  File "C:\Users\ASUS\AppData\Local\Temp\ipykernel_14064\990231243.py", line 74, in train
+    self.model.fit(
+  File "c:\Users\ASUS\anaconda3\envs\kidney_tf\Lib\site-packages\keras\src\utils\traceback_utils.py", line 122, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "c:\Users\ASUS\anaconda3\envs\kidney_tf\Lib\site-packages\keras\src\optimizers\base_optimizer.py", line 408, in _check_variables_are_known
+    raise ValueError(
+ValueError: Unknown variable: <Variable path=dense/kernel, shape=(25088, 4), dtype=float32>. This optimizer can only be called for the variables it was originally built with. When working with a new set of variables, you should recreate a new optimizer instance.
+[2026-07-19 14:22:04,189: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-07-19 14:22:04,191: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-07-19 14:22:04,191: INFO: common: created directory at: artifacts]
+[2026-07-19 14:22:04,191: INFO: common: created directory at: artifacts/training]
+[2026-07-19 14:22:34,467: INFO: stage_02_prepare_model_baseline: *******************]
+[2026-07-19 14:22:34,467: INFO: stage_02_prepare_model_baseline: >>>>>> stage Prepare base model started <<<<<<]
+[2026-07-19 14:22:34,467: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-07-19 14:22:34,467: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-07-19 14:22:34,467: INFO: common: created directory at: artifacts]
+[2026-07-19 14:22:34,467: INFO: common: created directory at: artifacts/prepare_base_model]
+[2026-07-19 14:22:34,913: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-07-19 14:22:35,263: INFO: prepare_base_model: VGG16 base model saved to: artifacts\prepare_base_model\base_model.h5]
+[2026-07-19 14:22:35,288: WARNING: config: TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.]
+[2026-07-19 14:22:35,293: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-07-19 14:22:35,430: INFO: prepare_base_model: Updated base model saved to: artifacts\prepare_base_model\updated_base_model.h5]
+[2026-07-19 14:22:35,430: INFO: stage_02_prepare_model_baseline: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2026-07-19 14:23:06,710: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-07-19 14:23:06,710: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-07-19 14:23:06,710: INFO: common: created directory at: artifacts]
+[2026-07-19 14:23:06,710: INFO: common: created directory at: artifacts/training]
+[2026-07-19 14:23:07,190: WARNING: config: TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.]
+[2026-07-19 14:23:07,559: INFO: model_training: Verified class indices: {'Cyst': 0, 'Normal': 1, 'Stone': 2, 'Tumor': 3}]
+[2026-07-19 14:23:32,243: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-07-19 14:23:32,243: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-07-19 14:23:32,243: INFO: common: created directory at: artifacts]
+[2026-07-19 14:23:32,243: INFO: common: created directory at: artifacts/training]
+[2026-07-19 14:23:32,540: WARNING: config: TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.]
+[2026-07-19 14:23:33,115: INFO: model_training: Verified class indices: {'Cyst': 0, 'Normal': 1, 'Stone': 2, 'Tumor': 3}]
+[2026-07-19 14:32:23,310: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-07-19 14:32:23,311: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-07-19 14:32:23,311: INFO: common: created directory at: artifacts]
+[2026-07-19 14:32:23,318: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-07-19 14:32:23,318: INFO: 986331348: Downloading data from https://drive.google.com/file/d/1xl2zHr4TNCJvkrxbIbQWB5YLHf3h0pMb/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2026-07-19 14:38:12,955: INFO: 986331348: Downloaded data from https://drive.google.com/file/d/1xl2zHr4TNCJvkrxbIbQWB5YLHf3h0pMb/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2026-07-19 15:05:21,342: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-07-19 15:05:21,342: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-07-19 15:05:21,342: INFO: common: created directory at: artifacts]
+[2026-07-19 15:05:21,342: INFO: common: created directory at: artifacts/prepare_base_model]
+[2026-07-19 15:06:12,505: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-07-19 15:06:12,513: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-07-19 15:06:12,514: INFO: common: created directory at: artifacts]
+[2026-07-19 15:06:12,514: INFO: common: created directory at: artifacts/prepare_base_model]
+[2026-07-19 15:06:12,976: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-07-19 15:06:13,125: WARNING: config: TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.]
+[2026-07-19 15:06:13,172: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-07-19 15:32:40,635: INFO: 475260107: Initializing training pipeline...]
+[2026-07-19 15:32:40,637: ERROR: 475260107: Error during training: name 'ConfigurationManager' is not defined]
+Traceback (most recent call last):
+  File "C:\Users\ASUS\AppData\Local\Temp\ipykernel_18020\475260107.py", line 3, in <module>
+    config = ConfigurationManager()
+             ^^^^^^^^^^^^^^^^^^^^
+NameError: name 'ConfigurationManager' is not defined
+[2026-07-19 15:32:47,996: INFO: 475260107: Initializing training pipeline...]
+[2026-07-19 15:32:47,999: ERROR: 475260107: Error during training: name 'ConfigurationManager' is not defined]
+Traceback (most recent call last):
+  File "C:\Users\ASUS\AppData\Local\Temp\ipykernel_18020\475260107.py", line 3, in <module>
+    config = ConfigurationManager()
+             ^^^^^^^^^^^^^^^^^^^^
+NameError: name 'ConfigurationManager' is not defined
+[2026-07-19 15:33:28,956: INFO: 959945268: Initializing training pipeline...]
+[2026-07-19 15:33:28,957: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-07-19 15:33:28,965: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-07-19 15:33:28,967: INFO: common: created directory at: artifacts]
+[2026-07-19 15:33:28,967: INFO: common: created directory at: artifacts/training]
+[2026-07-19 15:33:28,967: INFO: 959945268: Creating Training instance...]
+[2026-07-19 15:33:28,972: INFO: 959945268: Loading base model...]
+[2026-07-19 15:33:29,382: INFO: 959945268: Creating data generators...]
+[2026-07-19 15:33:29,500: ERROR: 959945268: Error during training: 'TrainingConfig' object has no attribute 'params_is_augmentation']
+Traceback (most recent call last):
+  File "C:\Users\ASUS\AppData\Local\Temp\ipykernel_18020\959945268.py", line 14, in <module>
+    training.train_valid_generator()
+  File "C:\Users\ASUS\AppData\Local\Temp\ipykernel_18020\1639334622.py", line 44, in train_valid_generator
+    if self.config.params_is_augmentation:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'TrainingConfig' object has no attribute 'params_is_augmentation'
+[2026-07-19 15:36:22,600: INFO: 959945268: Initializing training pipeline...]
+[2026-07-19 15:36:22,604: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-07-19 15:36:22,604: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-07-19 15:36:22,604: INFO: common: created directory at: artifacts]
+[2026-07-19 15:36:22,604: INFO: common: created directory at: artifacts/training]
+[2026-07-19 15:36:22,611: INFO: 959945268: Creating Training instance...]
+[2026-07-19 15:36:22,613: INFO: 959945268: Loading base model...]
+[2026-07-19 15:36:22,953: INFO: 959945268: Creating data generators...]
+[2026-07-19 15:36:23,061: ERROR: 959945268: Error during training: 'TrainingConfig' object has no attribute 'params_is_augmentation']
+Traceback (most recent call last):
+  File "C:\Users\ASUS\AppData\Local\Temp\ipykernel_13772\959945268.py", line 14, in <module>
+    training.train_valid_generator()
+  File "C:\Users\ASUS\AppData\Local\Temp\ipykernel_13772\1639334622.py", line 44, in train_valid_generator
+    if self.config.params_is_augmentation:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'TrainingConfig' object has no attribute 'params_is_augmentation'
+[2026-07-19 15:42:49,534: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-07-19 15:42:49,534: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-07-19 15:42:49,534: INFO: common: created directory at: artifacts]
+[2026-07-19 15:42:49,534: INFO: common: created directory at: artifacts/training]
+[2026-07-19 15:45:51,757: INFO: 3547869843: Initializing training pipeline...]
+[2026-07-19 15:45:51,763: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-07-19 15:45:51,766: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-07-19 15:45:51,769: INFO: common: created directory at: artifacts]
+[2026-07-19 15:45:51,771: INFO: common: created directory at: artifacts/training]
+[2026-07-19 15:45:51,773: INFO: 3547869843: Creating Training instance...]
+[2026-07-19 15:45:51,773: INFO: 3547869843: Loading base model...]
+[2026-07-19 15:45:52,106: INFO: 3547869843: Creating data generators...]
+[2026-07-19 15:45:52,442: INFO: 3547869843: Starting model training...]
+[2026-07-19 15:45:52,442: INFO: 3640464239: Starting training for 50 epochs...]
+[2026-07-19 16:12:43,372: INFO: 3547869843: Initializing training pipeline...]
+[2026-07-19 16:12:43,379: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-07-19 16:12:43,381: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-07-19 16:12:43,381: INFO: common: created directory at: artifacts]
+[2026-07-19 16:12:43,381: INFO: common: created directory at: artifacts/training]
+[2026-07-19 16:12:43,387: INFO: 3547869843: Creating Training instance...]
+[2026-07-19 16:12:43,387: INFO: 3547869843: Loading base model...]
+[2026-07-19 16:12:43,947: INFO: 3547869843: Creating data generators...]
+[2026-07-19 16:12:44,458: INFO: 3547869843: Starting model training...]
+[2026-07-19 16:12:44,460: INFO: 3640464239: Starting training for 5 epochs...]
+[2026-07-19 17:36:56,736: INFO: 3547869843: Initializing training pipeline...]
+[2026-07-19 17:36:56,738: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-07-19 17:36:56,741: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-07-19 17:36:56,741: INFO: common: created directory at: artifacts]
+[2026-07-19 17:36:56,741: INFO: common: created directory at: artifacts/training]
+[2026-07-19 17:36:56,741: INFO: 3547869843: Creating Training instance...]
+[2026-07-19 17:36:56,741: INFO: 3547869843: Loading base model...]
+[2026-07-19 17:36:56,915: INFO: 3547869843: Creating data generators...]
+[2026-07-19 17:36:57,230: INFO: 3547869843: Starting model training...]
+[2026-07-19 17:36:57,231: INFO: 3640464239: Starting training for 5 epochs...]
+[2026-07-19 18:22:07,150: INFO: 3547869843: Initializing training pipeline...]
+[2026-07-19 18:22:07,153: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-07-19 18:22:07,155: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-07-19 18:22:07,156: INFO: common: created directory at: artifacts]
+[2026-07-19 18:22:07,157: INFO: common: created directory at: artifacts/training]
+[2026-07-19 18:22:07,159: INFO: 3547869843: Creating Training instance...]
+[2026-07-19 18:22:07,159: INFO: 3547869843: Loading base model...]
+[2026-07-19 18:22:07,496: INFO: 3547869843: Creating data generators...]
+[2026-07-19 18:22:07,882: INFO: 3547869843: Starting model training...]
+[2026-07-19 18:22:07,882: INFO: 3640464239: Starting training for 5 epochs...]
+[2026-07-20 06:11:43,155: INFO: 1912291606: Initializing training pipeline...]
+[2026-07-20 06:11:43,158: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-07-20 06:11:43,162: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-07-20 06:11:43,163: INFO: common: created directory at: artifacts]
+[2026-07-20 06:11:43,164: INFO: common: created directory at: artifacts/training]
+[2026-07-20 06:11:43,165: INFO: 1912291606: Creating Training instance...]
+[2026-07-20 06:11:43,166: INFO: 1912291606: Loading base model...]
+[2026-07-20 06:11:43,458: INFO: 1912291606: Creating data generators...]
+[2026-07-20 06:11:43,793: INFO: 1912291606: Starting model training...]
+[2026-07-20 06:11:43,795: INFO: 3640464239: Starting training for 5 epochs...]
+[2026-07-20 06:33:15,141: INFO: 1912291606: Initializing training pipeline...]
+[2026-07-20 06:33:15,147: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-07-20 06:33:15,151: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-07-20 06:33:15,153: INFO: common: created directory at: artifacts]
+[2026-07-20 06:33:15,156: INFO: common: created directory at: artifacts/training]
+[2026-07-20 06:33:15,158: INFO: 1912291606: Creating Training instance...]
+[2026-07-20 06:33:15,159: INFO: 1912291606: Loading base model...]
+[2026-07-20 06:33:15,451: INFO: 1912291606: Creating data generators...]
+[2026-07-20 06:33:15,862: INFO: 1912291606: Starting model training...]
+[2026-07-20 06:33:15,864: INFO: 3640464239: Starting training for 5 epochs...]
+[2026-07-20 08:14:27,057: INFO: 1912291606: Initializing training pipeline...]
+[2026-07-20 08:14:27,068: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-07-20 08:14:27,073: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-07-20 08:14:27,078: INFO: common: created directory at: artifacts]
+[2026-07-20 08:14:27,081: INFO: common: created directory at: artifacts/training]
+[2026-07-20 08:14:27,084: INFO: 1912291606: Creating Training instance...]
+[2026-07-20 08:14:27,084: INFO: 1912291606: Loading base model...]
+[2026-07-20 08:14:27,332: INFO: 1912291606: Creating data generators...]
+[2026-07-20 08:14:27,662: INFO: 1912291606: Starting model training...]
+[2026-07-20 08:14:27,663: INFO: 3640464239: Starting training for 5 epochs...]
+[2026-07-20 10:25:40,408: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-07-20 10:25:40,628: INFO: 3640464239: Model saved at artifacts\training\model.h5]
+[2026-07-20 10:25:40,631: INFO: 1912291606: Training completed successfully!]
+[2026-07-20 10:26:22,350: INFO: 112405711: Initializing training pipeline...]
+[2026-07-20 10:26:22,357: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-07-20 10:26:22,363: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-07-20 10:26:22,367: INFO: common: created directory at: artifacts]
+[2026-07-20 10:26:22,369: INFO: common: created directory at: artifacts/training]
+[2026-07-20 10:26:22,370: INFO: 112405711: Creating Training instance...]
+[2026-07-20 10:26:22,371: INFO: 112405711: Loading base model...]
+[2026-07-20 10:26:22,660: INFO: 112405711: Creating data generators...]
+[2026-07-20 10:26:23,100: INFO: 112405711: Starting model training...]
+[2026-07-20 10:26:23,101: INFO: 3640464239: Starting training for 5 epochs...]
+[2026-07-20 12:31:09,647: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-07-20 12:31:09,750: INFO: 3640464239: Model saved at artifacts\training\model.h5]
+[2026-07-20 12:31:09,751: INFO: 112405711: Training completed successfully!]
+[2026-07-20 12:32:38,183: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-07-20 12:32:38,186: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-07-20 12:32:38,187: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-07-20 12:32:38,187: INFO: common: created directory at: artifacts]
+[2026-07-20 12:32:38,188: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-07-20 12:32:45,755: INFO: data_ingestion: Using existing dataset archive at: artifacts\data_ingestion\data.zip]
+[2026-07-20 12:32:45,826: INFO: data_ingestion: Using existing extracted dataset at: artifacts\data_ingestion\CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone]
+[2026-07-20 12:32:45,828: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2026-07-20 12:32:45,829: INFO: main: >>>>>> stage Model training started <<<<<<]
+[2026-07-20 12:32:45,832: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-07-20 12:32:45,834: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-07-20 12:32:45,835: INFO: common: created directory at: artifacts]
+[2026-07-20 12:32:45,836: INFO: common: created directory at: artifacts/training]
+[2026-07-20 12:32:46,137: WARNING: config: TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.]
+[2026-07-20 12:32:46,512: INFO: model_training: Verified class indices: {'Cyst': 0, 'Normal': 1, 'Stone': 2, 'Tumor': 3}]

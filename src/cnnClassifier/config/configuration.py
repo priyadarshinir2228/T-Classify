@@ -2,7 +2,11 @@ from pathlib import Path
 
 from cnnClassifier.utils.common import read_yaml, create_directories
 from cnnClassifier.constants import *
-from ..entity.config_entity import DataIngestionConfig, PrepareBaseModelConfig
+from ..entity.config_entity import (
+    DataIngestionConfig,
+    PrepareBaseModelConfig,
+    TrainingConfig,
+)
 class ConfigurationManager:
     def __init__(
         self,
@@ -32,10 +36,10 @@ class ConfigurationManager:
 
     def get_prepare_base_model_config(self) -> PrepareBaseModelConfig:
         config = self.config.prepare_base_model
-
+        
         create_directories([config.root_dir])
 
-        return PrepareBaseModelConfig(
+        prepare_base_model_config = PrepareBaseModelConfig(
             root_dir=Path(config.root_dir),
             base_model_path=Path(config.base_model_path),
             updated_base_model_path=Path(config.updated_base_model_path),
@@ -43,7 +47,30 @@ class ConfigurationManager:
             params_learning_rate=self.params.LEARNING_RATE,
             params_include_top=self.params.INCLUDE_TOP,
             params_weights=self.params.WEIGHTS,
-            params_classes=self.params.CLASSES,
+            params_classes=self.params.CLASSES
         )
-    
+
         return prepare_base_model_config
+
+    def get_training_config(self) -> TrainingConfig:
+        config = self.config.training
+        prepare_base_model_config = self.config.prepare_base_model
+        data_ingestion_config = self.config.data_ingestion
+
+        create_directories([config.root_dir])
+
+        return TrainingConfig(
+            root_dir=Path(config.root_dir),
+            trained_model_path=Path(config.trained_model_path),
+            updated_base_model_path=Path(
+                prepare_base_model_config.updated_base_model_path
+            ),
+            training_data=Path(data_ingestion_config.unzip_dir)
+            / "CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone",
+            params_image_size=self.params.IMAGE_SIZE,
+            params_batch_size=self.params.BATCH_SIZE,
+            params_epochs=self.params.EPOCHS,
+            params_augmentation=self.params.AUGMENTATION,
+            params_learning_rate=self.params.LEARNING_RATE,
+            params_fine_tune=self.params.FINE_TUNE,
+        )

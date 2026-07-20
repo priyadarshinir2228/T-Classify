@@ -1,4 +1,8 @@
 import tensorflow as tf
+import os
+import urllib.request as request
+from zipfile import ZipFile
+from pathlib import Path
 
 from cnnClassifier import logger
 from cnnClassifier.entity.config_entity import PrepareBaseModelConfig
@@ -27,7 +31,7 @@ class PrepareBaseModel:
         prediction = tf.keras.layers.Dense(classes, activation="softmax")(flatten_in)
         full_model = tf.keras.models.Model(inputs=model.input, outputs=prediction)
         full_model.compile(
-            optimizer=tf.keras.optimizers.SGD(learning_rate=learning_rate),
+            optimizer=tf.keras.optimizers.Adam(learning_rate=learning_rate),
             loss=tf.keras.losses.CategoricalCrossentropy(),
             metrics=["accuracy"],
         )
@@ -40,7 +44,8 @@ class PrepareBaseModel:
             include_top=self.config.params_include_top,
         )
         self.model.save(self.config.base_model_path)
-        logger.info("VGG16 base model created")
+        self.model.summary()
+        logger.info(f"VGG16 base model saved to: {self.config.base_model_path}")
 
     def update_base_model(self) -> None:
         self.full_model = self._prepare_full_model(
@@ -49,4 +54,7 @@ class PrepareBaseModel:
             learning_rate=self.config.params_learning_rate,
         )
         self.full_model.save(self.config.updated_base_model_path)
-        logger.info("Updated base model created")
+        self.full_model.summary()
+        logger.info(
+            f"Updated base model saved to: {self.config.updated_base_model_path}"
+        )

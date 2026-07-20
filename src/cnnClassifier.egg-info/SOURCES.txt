@@ -13,8 +13,8 @@ src/cnnClassifier/config/configuration.py
 src/cnnClassifier/constants/__init__.py
 src/cnnClassifier/entity/__init__.py
 src/cnnClassifier/entity/config_entity.py
-src/cnnClassifier/pipeline/02_prepare_base_model.py
 src/cnnClassifier/pipeline/__init__.py
 src/cnnClassifier/pipeline/stage_01_data_ingestion.py
+src/cnnClassifier/pipeline/stage_02_prepare_model_baseline.py
 src/cnnClassifier/utils/__init__.py
 src/cnnClassifier/utils/common.py
